@@ -3,6 +3,9 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
+#define HOLD_PIN  34
+#define NULL_PIN  35
+
 // initialize ADS1115 on I2C bus 1 with default address 0x48
 ADS1115 ADS(0x48);
 
@@ -24,10 +27,23 @@ const float gain=1.64;
 
 //Gauss value
 static float gauss_val;
+volatile float offset=0;
+volatile float hold_val=0;
+volatile bool hold_flag=false; //0 for not hold, 1 for hold
+
+void IRAM_ATTR holdISR() {
+  hold_flag = !hold_flag;
+  if(hold_flag) hold_val = gauss_val - offset;
+}
+
+void IRAM_ATTR nullISR() {
+  offset = gauss_val;
+}
 
 void readADCTask(void* parameters) {
   adc_val = ADS.getValue();
   sens_volt = ADS.toVoltage(adc_val);
+
 }
 
 void printTask(void* parameters) {
@@ -43,7 +59,12 @@ void processingTask(void *parameters) {
 void LCDTask(void *parameters) {
   lcd.setCursor(0,0);
   char s[50];
-  sprintf(s, "Gauss: %.3f", gauss_val);
+  float print_val=0;
+  if (hold_flag)
+    print_val = hold_val;
+  else
+    print_val = gauss_val - offset;
+  sprintf(s, "Gauss: %.3f", print_val);
   lcd.print(s);
 }
 
@@ -54,7 +75,7 @@ void setup() {
 
   while (!ADS.isConnected()) {
     // error ADS1115 not connected
-    Serial.println("ADS1115 is not connected");
+    Serial.println("ADS1115 is not cSonnected");
     vTaskDelay(1000 / portMAX_DELAY);
   }
 
@@ -70,6 +91,9 @@ void setup() {
   lcd.init();
   lcd.backlight(); 
 
+  //Attach interrupts
+  attachInterrupt(HOLD_PIN, holdISR, RISING);
+  attachInterrupt(NULL_PIN, nullISR, RISING);
 }
 
 void loop() {
