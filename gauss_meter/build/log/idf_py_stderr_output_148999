@@ -1,0 +1,10 @@
+CMake Error at /home/sohamc1909/esp/esp-idf-v5-1-3/tools/cmake/build.cmake:266 (message):
+  Failed to resolve component 'arduino-esp32'.
+Call Stack (most recent call first):
+  /home/sohamc1909/esp/esp-idf-v5-1-3/tools/cmake/build.cmake:302 (__build_resolve_and_add_req)
+  /home/sohamc1909/esp/esp-idf-v5-1-3/tools/cmake/build.cmake:595 (__build_expand_requirements)
+  /home/sohamc1909/esp/esp-idf-v5-1-3/tools/cmake/project.cmake:547 (idf_build_process)
+  CMakeLists.txt:11 (project)
+
+
+ninja: error: rebuilding 'build.ninja': subcommand failed

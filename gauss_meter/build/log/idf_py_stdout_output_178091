@@ -1,0 +1,135 @@
+[1/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/cores/esp32/USBMSC.cpp.obj
+[2/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/cores/esp32/USB.cpp.obj
+[3/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLE2904.cpp.obj
+[4/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/cores/esp32/FirmwareMSC.cpp.obj
+[5/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/cores/esp32/USBCDC.cpp.obj
+[6/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEAddress.cpp.obj
+[7/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEAdvertising.cpp.obj
+[8/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLE2902.cpp.obj
+[9/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/cores/esp32/WMath.cpp.obj
+[10/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEAdvertisedDevice.cpp.obj
+[11/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEClient.cpp.obj
+[12/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEBeacon.cpp.obj
+[13/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLECharacteristicMap.cpp.obj
+[14/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLECharacteristic.cpp.obj
+[15/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEDevice.cpp.obj
+[16/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEDescriptor.cpp.obj
+[17/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEEddystoneURL.cpp.obj
+[18/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEEddystoneTLM.cpp.obj
+[19/110] Performing build step for 'bootloader'
+[1/1] cd /home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/build/bootloader/esp-idf/esptool_py && /home/sohamc1909/.espressif/python_env/idf5.1_py3.11_env/bin/python /home/sohamc1909/esp/esp-idf-v5-1-3/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/build/bootloader/bootloader.bin
+Bootloader binary size 0x6850 bytes. 0x7b0 bytes (7%) free.
+[20/110] Building C object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/cores/esp32/wiring_pulse.c.obj
+[21/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEDescriptorMap.cpp.obj
+[22/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEHIDDevice.cpp.obj
+[23/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLERemoteCharacteristic.cpp.obj
+[24/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLERemoteDescriptor.cpp.obj
+[25/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLERemoteService.cpp.obj
+[26/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEScan.cpp.obj
+[27/110] No install step for 'bootloader'
+[28/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLESecurity.cpp.obj
+[29/110] Building C object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/cores/esp32/firmware_msc_fat.c.obj
+[30/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEServer.cpp.obj
+[31/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEService.cpp.obj
+[32/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEServiceMap.cpp.obj
+[33/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEUtils.cpp.obj
+[34/110] Building C object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/cores/esp32/wiring_shift.c.obj
+[35/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEUUID.cpp.obj
+[36/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/BLEValue.cpp.obj
+[37/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BluetoothSerial/src/BTAddress.cpp.obj
+[38/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BluetoothSerial/src/BTAdvertisedDeviceSet.cpp.obj
+[39/110] Completed 'bootloader'
+[40/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/ESP_SR/src/ESP_SR.cpp.obj
+[41/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BluetoothSerial/src/BTScanResultsSet.cpp.obj
+[42/110] Building C object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/ESP_SR/src/esp32-hal-sr.c.obj
+[43/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BluetoothSerial/src/BluetoothSerial.cpp.obj
+[44/110] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/main.cpp.obj
+[45/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/cores/esp32/WString.cpp.obj
+[46/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/AsyncUDP/src/AsyncUDP.cpp.obj
+[47/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Insights/src/Insights.cpp.obj
+[48/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/EEPROM/src/EEPROM.cpp.obj
+[49/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/ArduinoOTA/src/ArduinoOTA.cpp.obj
+[50/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/ESP_I2S/src/ESP_I2S.cpp.obj
+[51/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/DNSServer/src/DNSServer.cpp.obj
+[52/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/FS/src/FS.cpp.obj
+[53/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/GeneralUtils.cpp.obj
+[54/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/ESPmDNS/src/ESPmDNS.cpp.obj
+[55/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/BLE/src/FreeRTOS.cpp.obj
+[56/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerParam.cpp.obj
+[57/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerNode.cpp.obj
+[58/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/AppInsights.cpp.obj
+[59/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Ethernet/src/ETH.cpp.obj
+/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/components/arduino/libraries/Ethernet/src/ETH.cpp: In member function 'bool ETHClass::beginSPI(eth_phy_type_t, int32_t, int, int, int, SPIClass*, int, int, int, spi_host_device_t, uint8_t)':
+/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/components/arduino/libraries/Ethernet/src/ETH.cpp:441:22: warning: unused variable 'eth_mac_config' [-Wunused-variable]
+  441 |     eth_mac_config_t eth_mac_config = ETH_MAC_DEFAULT_CONFIG();
+      |                      ^~~~~~~~~~~~~~
+/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/components/arduino/libraries/Ethernet/src/ETH.cpp:442:22: warning: variable 'phy_config' set but not used [-Wunused-but-set-variable]
+  442 |     eth_phy_config_t phy_config = ETH_PHY_DEFAULT_CONFIG();
+      |                      ^~~~~~~~~~
+/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/components/arduino/libraries/Ethernet/src/ETH.cpp: At global scope:
+/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/components/arduino/libraries/Ethernet/src/ETH.cpp:252:18: warning: 'esp_err_t _eth_spi_deinit(void*)' defined but not used [-Wunused-function]
+  252 | static esp_err_t _eth_spi_deinit(void *ctx){
+      |                  ^~~~~~~~~~~~~~~
+/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/components/arduino/libraries/Ethernet/src/ETH.cpp:248:14: warning: 'void* _eth_spi_init(const void*)' defined but not used [-Wunused-function]
+  248 | static void *_eth_spi_init(const void *ctx){
+      |              ^~~~~~~~~~~~~
+[60/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Preferences/src/Preferences.cpp.obj
+[61/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerDevice.cpp.obj
+[62/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SimpleBLE/src/SimpleBLE.cpp.obj
+[63/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/FFat/src/FFat.cpp.obj
+[64/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/NetBIOS/src/NetBIOS.cpp.obj
+[65/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/HTTPUpdate/src/HTTPUpdate.cpp.obj
+[66/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerType.cpp.obj
+[67/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/FS/src/vfs_api.cpp.obj
+[68/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHID.cpp.obj
+[69/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBMIDI.cpp.obj
+[70/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMaker.cpp.obj
+[71/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDMouse.cpp.obj
+[72/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDGamepad.cpp.obj
+[73/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDKeyboard.cpp.obj
+[74/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDConsumerControl.cpp.obj
+[75/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDSystemControl.cpp.obj
+[76/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDVendor.cpp.obj
+[77/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBVendor.cpp.obj
+[78/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Update/src/HttpsOTAUpdate.cpp.obj
+[79/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerQR.cpp.obj
+[80/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Ticker/src/Ticker.cpp.obj
+[81/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/LittleFS/src/LittleFS.cpp.obj
+[82/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerUtils.cpp.obj
+[83/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SD/src/sd_diskio.cpp.obj
+[84/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SPIFFS/src/SPIFFS.cpp.obj
+[85/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/HTTPClient/src/HTTPClient.cpp.obj
+[86/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SPI/src/SPI.cpp.obj
+[87/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SD_MMC/src/SD_MMC.cpp.obj
+[88/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Update/src/Updater.cpp.obj
+[89/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SD/src/SD.cpp.obj
+[90/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiUdp.cpp.obj
+[91/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WebServer/src/Parsing.cpp.obj
+[92/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFi.cpp.obj
+[93/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiAP.cpp.obj
+[94/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFiClientSecure/src/ssl_client.cpp.obj
+/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/components/arduino/libraries/WiFiClientSecure/src/ssl_client.cpp:24:4: warning: #warning "Please call `idf.py menuconfig` then go to Component config -> mbedTLS -> TLS Key Exchange Methods -> Enable pre-shared-key ciphersuites and then check `Enable PSK based cyphersuite modes`. Save and Quit." [-Wcpp]
+   24 | #  warning "Please call `idf.py menuconfig` then go to Component config -> mbedTLS -> TLS Key Exchange Methods -> Enable pre-shared-key ciphersuites and then check `Enable PSK based cyphersuite modes`. Save and Quit."
+      |    ^~~~~~~
+[95/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiSTA.cpp.obj
+[96/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiClient.cpp.obj
+[97/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiMulti.cpp.obj
+[98/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFiClientSecure/src/WiFiClientSecure.cpp.obj
+[99/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiServer.cpp.obj
+[100/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WebServer/src/WebServer.cpp.obj
+[101/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiScan.cpp.obj
+[102/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiGeneric.cpp.obj
+[103/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFiProv/src/WiFiProv.cpp.obj
+[104/110] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Wire/src/Wire.cpp.obj
+[105/110] Linking C static library esp-idf/arduino/libarduino.a
+[106/110] Linking C static library esp-idf/main/libmain.a
+[107/110] Generating ld/sections.ld
+[108/110] Linking CXX executable gauss_meter.elf
+[109/110] Generating binary image from built executable
+esptool.py v4.7.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/build/gauss_meter.bin
+[110/110] cd /home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/build/esp-idf/esptool_py && /home/sohamc1909/.espressif/python_env/idf5.1_py3.11_env/bin/python /home/sohamc1909/esp/esp-idf-v5-1-3/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/build/partition_table/partition-table.bin /home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/build/gauss_meter.bin
+gauss_meter.bin binary size 0x3ded0 bytes. Smallest app partition is 0x100000 bytes. 0xc2130 bytes (76%) free.

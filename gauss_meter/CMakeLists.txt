@@ -5,4 +5,15 @@
 cmake_minimum_required(VERSION 3.16)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+set(EXTRA_COMPONENT_DIRS /home/sohamc1909/esp/utils/esp32-arduino-lib-builder/components/arduino_tinyusb)
+
+set(LIBRARY_SRCS 
+    /home/sohamc1909/esp/esp-idf-v5-1-3/components/arduino-esp32/libraries/Wire/src/Wire.cpp
+    /home/sohamc1909/esp/esp-idf-v5-1-3/components/arduino-esp32/libraries/LiquidCrystal_I2C/LiquidCrystal_I2C.cpp)
+
+set(includedirs 
+    /home/sohamc1909/esp/esp-idf-v5-1-3/components/arduino-esp32/libraries/Wire/src/
+    /home/sohamc1909/esp/esp-idf-v5-1-3/components/arduino-esp32/libraries/LiquidCrystal_I2C)
+
 project(gauss_meter)
+

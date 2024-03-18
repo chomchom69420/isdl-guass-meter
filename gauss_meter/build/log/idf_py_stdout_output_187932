@@ -1,0 +1,39 @@
+[0/1] Re-running CMake...
+-- Building ESP-IDF components for target esp32
+NOTICE: Skipping optional dependency: espressif/esp-sr
+Processing 19 dependencies:
+[1/19] chmorgan/esp-libhelix-mp3 (1.0.3)
+[2/19] espressif/cbor (0.6.0~1)
+[3/19] espressif/esp-dsp (1.4.12)
+[4/19] espressif/esp-zboss-lib (1.2.1)
+[5/19] espressif/esp-zigbee-lib (1.2.1)
+[6/19] espressif/esp_diag_data_store (1.0.1)
+[7/19] espressif/esp_diagnostics (1.1.0)
+[8/19] espressif/esp_insights (1.1.0)
+[9/19] espressif/esp_rainmaker (1.1.0)
+[10/19] espressif/esp_schedule (1.1.1)
+[11/19] espressif/esp_secure_cert_mgr (2.4.1)
+[12/19] espressif/jsmn (1.1.0)
+[13/19] espressif/json_generator (1.1.2)
+[14/19] espressif/json_parser (1.0.3)
+[15/19] espressif/mdns (1.2.5)
+[16/19] espressif/qrcode (0.1.0~2)
+[17/19] espressif/rmaker_common (1.4.5)
+[18/19] idf (5.1.3)
+[19/19] joltwallet/littlefs (1.14.2)
+NOTICE: Skipping optional dependency: espressif/esp-sr
+-- Project sdkconfig file /home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/sdkconfig
+-- App "gauss_meter" version: 4bfcda5-dirty
+-- Adding linker script /home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script /home/sohamc1909/esp/esp-idf-v5-1-3/components/esp_system/ld/esp32/sections.ld.in
+-- Adding linker script /home/sohamc1909/esp/esp-idf-v5-1-3/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script /home/sohamc1909/esp/esp-idf-v5-1-3/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script /home/sohamc1909/esp/esp-idf-v5-1-3/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script /home/sohamc1909/esp/esp-idf-v5-1-3/components/esp_rom/esp32/ld/esp32.rom.newlib-data.ld
+-- Adding linker script /home/sohamc1909/esp/esp-idf-v5-1-3/components/esp_rom/esp32/ld/esp32.rom.syscalls.ld
+-- Adding linker script /home/sohamc1909/esp/esp-idf-v5-1-3/components/esp_rom/esp32/ld/esp32.rom.newlib-funcs.ld
+-- Adding linker script /home/sohamc1909/esp/esp-idf-v5-1-3/components/soc/esp32/ld/esp32.peripherals.ld
+-- Configuring incomplete, errors occurred!
+See also "/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/build/CMakeFiles/CMakeOutput.log".
+FAILED: build.ninja 
+/usr/bin/cmake --regenerate-during-build -S/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter -B/home/sohamc1909/esp/gauss_meter/isdl-guass-meter/gauss_meter/build

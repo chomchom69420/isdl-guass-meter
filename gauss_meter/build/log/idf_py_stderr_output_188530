@@ -1,0 +1,14 @@
+Compiler supported targets: xtensa-esp32-elf
+
+ESP Insights Project commit: 4bfcda5-dirty
+ESP RainMaker Project commit: 4bfcda5-dirty
+CMake Error at /home/sohamc1909/esp/esp-idf-v5-1-3/tools/cmake/component.cmake:313 (message):
+  Include directory
+  '/esp/esp-idf-v5-1-3/components/arduino-esp32/libraries/LiquidCrystal_I2C'
+  is not a directory.
+Call Stack (most recent call first):
+  /home/sohamc1909/esp/esp-idf-v5-1-3/tools/cmake/component.cmake:481 (__component_add_include_dirs)
+  main/CMakeLists.txt:1 (idf_component_register)
+
+
+ninja: error: rebuilding 'build.ninja': subcommand failed
