@@ -34,7 +34,6 @@ AsyncWebServer server(80);
 #define HOLD_PIN  13
 #define NULL_PIN  12
 
-// initialize ADS1115 on I2C bus 1 with default address 0x48
 ADS1115 ADS(0x4A);
 
 //ADS1115 configurations
@@ -42,7 +41,6 @@ uint8_t sample_rate = 7;    //860 SPS (fastest)
 uint8_t adc_mode    = 0;    //Continuous mode 
 uint8_t adc_pin     = 0;    //Pin 0 of ADC
 
-//LCD configuration
 const int lcdColumns = 16;
 const int lcdRows = 2;
 
@@ -112,7 +110,6 @@ void setup() {
   delay(100);
   Serial.println("");
 
-  // Wait for connection
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
@@ -140,26 +137,22 @@ void setup() {
     request->send(200, "text/plain", "Gauss Meter v1.0 by ISDL Lab Group 1: Soham Chakraborty, Mukut Debnath, Panthadip Maji");
   });
 
-  AsyncElegantOTA.begin(&server);    // Start ElegantOTA
+  AsyncElegantOTA.begin(&server);    
   WebSerial.begin(&server);
   WebSerial.msgCallback(recvMsg);
   server.begin();
   Serial.println("HTTP server started");
-
-  //2s delay to start up webservers
   delay(2000);
 
   pinMode(NULL_PIN, INPUT_PULLUP);
   pinMode(HOLD_PIN, INPUT_PULLUP);
 
-  //Init lcd 
   lcd.init();
   lcd.backlight(); 
 
   Wire.begin();
 
   while (!ADS.isConnected()) {
-    // error ADS1115 not connected
     WebSerial.println("ADS1115 is not connected. Trying again...");
     vTaskDelay(1000 / portMAX_DELAY);
   }
@@ -183,35 +176,18 @@ void loop() {
   int null_reading = digitalRead(NULL_PIN);
   int hold_reading = digitalRead(HOLD_PIN);
 
-  // check to see if you just pressed the button
-  // (i.e. the input went from LOW to HIGH), and you've waited long enough
-  // since the last press to ignore any noise:
-
-  // If the switch changed, due to noise or pressing:
   if (null_reading != null_lastButtonState) {
-    // WebSerial.println("NULL switch state = ");
-    // WebSerial.print(null_reading);
-    // WebSerial.println();
-    // reset the debouncing timer
     null_lastDebounceTime = millis();
   }
 
   if (hold_reading != hold_lastButtonState) {
-    // WebSerial.println("HOLD switch state = ");
-    // WebSerial.print(hold_reading);
-    // WebSerial.println();
     hold_lastDebounceTime = millis();
   }
 
   if ((millis() - null_lastDebounceTime) > debounceDelay) {
-    // whatever the null_reading is at, it's been there for longer than the debounce
-    // delay, so take it as the actual current state:
 
-    // if the button state has changed:
     if (null_reading != null_buttonState) {
       null_buttonState = null_reading;
-
-      // only toggle the LED if the new button state is HIGH
       if (null_buttonState == LOW) {
         offset = gauss_val;
         WebSerial.println("Null button pressed.");
