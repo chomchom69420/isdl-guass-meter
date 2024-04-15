@@ -10,6 +10,8 @@
 #include "ESPTelnet.h"
 #include <WebSerial.h>
 
+#define WINDOW_SIZE 50
+
 WiFiServer TelnetServer(23);
 WiFiClient Telnet;
 
@@ -52,10 +54,14 @@ static float sens_volt;
 const float gain=1.64;
 
 //Gauss value
-static float gauss_val;
+float gauss_val=0;
+float avg_gauss_val=0;
 volatile float offset=0;
 volatile float hold_val=0;
 volatile bool hold_flag=false; //0 for not hold, 1 for hold
+
+//Moving average
+float data[WINDOW_SIZE] = {0};
 
 //Debounce variables
 unsigned long debounceDelay = 25; 
@@ -66,10 +72,20 @@ unsigned long hold_lastDebounceTime = 0;
 int hold_buttonState;            
 int hold_lastButtonState = HIGH;  
 
+unsigned long lcdDelay = 95;
+unsigned long last_lcdTime = 0;
+
+float moving_average(float *data, int size) {
+    float sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += data[i];
+    }
+    return sum / size;
+}
+
 void readADCTask(void* parameters) {
   adc_val = ADS.getValue();
   sens_volt = ADS.toVoltage(adc_val);
-
 }
 
 void printTask(void* parameters) {
@@ -80,6 +96,12 @@ void printTask(void* parameters) {
 
 void processingTask(void *parameters) {
   gauss_val = ((sens_volt-2.5)*1000)/(1.4*gain);
+
+  for (int i = 0; i < WINDOW_SIZE - 1; i++) {
+    data[i] = data[i + 1];
+  }
+  data[WINDOW_SIZE - 1] = gauss_val;
+  avg_gauss_val = moving_average(data, WINDOW_SIZE);
 }
 
 void LCDTask(void *parameters) {
@@ -89,8 +111,8 @@ void LCDTask(void *parameters) {
   if (hold_flag)
     print_val = hold_val;
   else
-    print_val = gauss_val - offset;
-  sprintf(s, "Gauss: %.3f", print_val);
+    print_val = avg_gauss_val - offset;
+  sprintf(s, "Gauss: %.2f", print_val);
   lcd.print(s);
 }
 
@@ -134,7 +156,8 @@ void setup() {
   Serial.println("mDNS responder started");
 
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-    request->send(200, "text/plain", "Gauss Meter v1.0 by ISDL Lab Group 1: Soham Chakraborty, Mukut Debnath, Panthadip Maji");
+    request->send(200, "text/plain", "Gauss Meter v1.0 by ISDL Lab Group 1: Soham "
+                                     "Chakraborty, Mukut Debnath, Panthadip Maji");
   });
 
   AsyncElegantOTA.begin(&server);    
@@ -169,10 +192,15 @@ void setup() {
 
   delay(10);
   WebSerial.println("Finished configuring ADS1115.");
+
+  last_lcdTime = millis();
 }
 
 void loop() {
   handleTelnet();
+  readADCTask((void*)NULL);
+  processingTask((void*)NULL);
+
   int null_reading = digitalRead(NULL_PIN);
   int hold_reading = digitalRead(HOLD_PIN);
 
@@ -189,8 +217,10 @@ void loop() {
     if (null_reading != null_buttonState) {
       null_buttonState = null_reading;
       if (null_buttonState == LOW) {
-        offset = gauss_val;
+        offset = avg_gauss_val;
         WebSerial.println("Null button pressed.");
+        WebSerial.printf("Offset: %.5f\n", offset);
+        lcd.clear();
       }
     }
   }
@@ -201,18 +231,18 @@ void loop() {
       if (hold_buttonState == LOW) {
         hold_flag = !hold_flag;
         if(hold_flag) 
-          hold_val = gauss_val - offset;
+          hold_val = avg_gauss_val - offset;
         WebSerial.println("Hold button pressed.");
       }
     }
   }
 
-  readADCTask((void*)NULL);
-  processingTask((void*)NULL);
-  LCDTask((void*)NULL);
-
+  if (millis() - last_lcdTime > lcdDelay) {
+    LCDTask((void*)NULL);
+    last_lcdTime = millis();
+  }
   null_lastButtonState = null_reading;
   hold_lastButtonState = hold_reading;
-  delay(500);
+  delay(10);
 }
 
