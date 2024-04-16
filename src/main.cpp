@@ -30,6 +30,8 @@ void handleTelnet() {
 
 const char* ssid = "Soham_TPLINK";
 const char* password = "sohamc621";
+uint8_t Wifi_tries = 0;
+bool Wifi_flag = 0;
 
 AsyncWebServer server(80);
 
@@ -133,39 +135,49 @@ void setup() {
   Serial.println("");
 
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-
-  Serial.println("");
-  Serial.print("Connected to ");
-  Serial.println(ssid);
-  Serial.print("IP address: ");
-  Serial.println(WiFi.localIP());
-
-  TelnetServer.begin();
-  TelnetServer.setNoDelay(true);
-
-  // Initialize mDNS
-  if (!MDNS.begin("esp32")) {   // Set the hostname to "esp32.local"
-    Serial.println("Error setting up MDNS responder!");
-    while(1) {
-      delay(1000);
+    if (Wifi_tries < 10) {
+      delay(500);
+      Serial.print(".");
+      Wifi_tries++;
+    }
+    else {
+      break;
     }
   }
-  Serial.println("mDNS responder started");
 
-  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-    request->send(200, "text/plain", "Gauss Meter v1.0 by ISDL Lab Group 1: Soham "
-                                     "Chakraborty, Mukut Debnath, Panthadip Maji");
-  });
+  if(WiFi.status() == WL_CONNECTED) {
+    Serial.println("");
+    Serial.print("Connected to ");
+    Serial.println(ssid);
+    Serial.print("IP address: ");
+    Serial.println(WiFi.localIP());
 
-  AsyncElegantOTA.begin(&server);    
-  WebSerial.begin(&server);
-  WebSerial.msgCallback(recvMsg);
-  server.begin();
-  Serial.println("HTTP server started");
-  delay(2000);
+    TelnetServer.begin();
+    TelnetServer.setNoDelay(true);
+
+    // Initialize mDNS
+    if (!MDNS.begin("esp32")) {   // Set the hostname to "esp32.local"
+      Serial.println("Error setting up MDNS responder!");
+      while(1) {
+        delay(1000);
+      }
+    }
+    Serial.println("mDNS responder started");
+
+    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
+      request->send(200, "text/plain", "Gauss Meter v1.1 by ISDL Lab Group 1: Soham "
+                                      "Chakraborty, Mukut Debnath, Panthadip Maji");
+    });
+
+    AsyncElegantOTA.begin(&server);    
+    WebSerial.begin(&server);
+    WebSerial.msgCallback(recvMsg);
+    server.begin();
+    Serial.println("HTTP server started");
+    delay(2000);
+  } 
+  if (WiFi.status() == WL_CONNECTED)  
+    WebSerial.println("WL_CONNECTED");
 
   pinMode(NULL_PIN, INPUT_PULLUP);
   pinMode(HOLD_PIN, INPUT_PULLUP);
@@ -176,12 +188,15 @@ void setup() {
   Wire.begin();
 
   while (!ADS.isConnected()) {
-    WebSerial.println("ADS1115 is not connected. Trying again...");
+    if (WiFi.status() == WL_CONNECTED)
+      WebSerial.println("ADS1115 is not connected. Trying again...");
     vTaskDelay(1000 / portMAX_DELAY);
   }
-  WebSerial.println("ADS1115 connected!");
+  if (WiFi.status() == WL_CONNECTED)
+    WebSerial.println("ADS1115 connected!");
 
-  WebSerial.println("Setting up ADS1115...");
+  if (WiFi.status() == WL_CONNECTED)
+    WebSerial.println("Setting up ADS1115...");
   ADS.begin();
   ADS.setGain(0);
   ADS.setDataRate(sample_rate);
@@ -191,13 +206,15 @@ void setup() {
   ADS.requestADC(adc_pin);
 
   delay(10);
-  WebSerial.println("Finished configuring ADS1115.");
+  if (WiFi.status() == WL_CONNECTED)
+    WebSerial.println("Finished configuring ADS1115.");
 
   last_lcdTime = millis();
 }
 
 void loop() {
-  handleTelnet();
+  if (WiFi.status() == WL_CONNECTED)
+    handleTelnet();
   readADCTask((void*)NULL);
   processingTask((void*)NULL);
 
@@ -218,8 +235,10 @@ void loop() {
       null_buttonState = null_reading;
       if (null_buttonState == LOW) {
         offset = avg_gauss_val;
-        WebSerial.println("Null button pressed.");
-        WebSerial.printf("Offset: %.5f\n", offset);
+        if (WiFi.status() == WL_CONNECTED) {
+          WebSerial.println("Null button pressed.");
+          WebSerial.printf("Offset: %.5f\n", offset);
+        }
         lcd.clear();
       }
     }
@@ -232,7 +251,8 @@ void loop() {
         hold_flag = !hold_flag;
         if(hold_flag) 
           hold_val = avg_gauss_val - offset;
-        WebSerial.println("Hold button pressed.");
+          if (WiFi.status() == WL_CONNECTED) 
+            WebSerial.println("Hold button pressed.");
       }
     }
   }
